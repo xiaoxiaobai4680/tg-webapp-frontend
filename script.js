@@ -1,3 +1,26 @@
+// ===== TG initData helpers (global) =====
+window.getInitData = function () {
+  // 1) Telegram WebApp object exists
+  if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
+    return window.Telegram.WebApp.initData || "";
+  }
+
+  // 2) Fallback: parse from URL hash: #tgWebAppData=...
+  try {
+    const hash = location.hash || "";
+    const params = new URLSearchParams(hash.startsWith("#") ? hash.slice(1) : hash);
+    const raw = params.get("tgWebAppData");
+    if (!raw) return "";
+    return decodeURIComponent(raw);
+  } catch (e) {
+    return "";
+  }
+};
+
+window.isTelegramWebApp = function () {
+  return !!(window.Telegram && window.Telegram.WebApp);
+};
+
 // 平滑滚动
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
