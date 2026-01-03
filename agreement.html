@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务者入驻协议 - 形象探索平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .agreement-page {
+            padding: 2rem 0 5rem;
+            background: var(--bg-light);
+            min-height: 100vh;
+        }
+        
+        .agreement-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .agreement-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .agreement-header .subtitle {
+            font-size: 1.125rem;
+            opacity: 0.95;
+        }
+        
+        .agreement-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .agreement-intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .agreement-intro p {
+            margin: 0.5rem 0;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .agreement-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .section-number {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-right: 1rem;
+            vertical-align: middle;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .agreement-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .agreement-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .agreement-section li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .agreement-section li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        .prohibition-list {
+            background: #fef2f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+            margin: 1.5rem 0;
+        }
+        
+        .prohibition-list li {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .prohibition-list li::before {
+            content: "❌";
+            color: #ef4444;
+        }
+        
+        .requirement-list {
+            background: #f0fdf4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+            margin: 1.5rem 0;
+        }
+        
+        .requirement-list li {
+            color: var(--text-primary);
+        }
+        
+        .requirement-list li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .warning-box {
+            background: #fee2e2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .warning-box p {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        
+        .confirmation-section {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .confirmation-section h3 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .confirmation-text {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .agreement-header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .agreement-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section-number {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="agreement-page">
+        <div class="agreement-header">
+            <div class="container">
+                <h1>服务者入驻协议</h1>
+                <p class="subtitle">安全版｜平台标准</p>
+            </div>
+        </div>
+        
+        <div class="agreement-container">
+            <div class="agreement-intro">
+                <p><strong>适用于：</strong>所有在平台提供陪伴、形象、护理类服务的服务者</p>
+                <p><strong>协议目的：</strong>本协议用于明确边界、保护双方权益、降低风险</p>
+            </div>
+            
+            <!-- 1️⃣ 协议目的 -->
+            <div class="agreement-section">
+                <h3 class="section-title">
+                    <span class="section-number">1️⃣</span>
+                    协议目的
+                </h3>
+                <p>本协议用于规范服务者在平台内提供服务的行为，确保所有服务在<strong>合法、合规、安全、尊重边界</strong>的前提下进行。</p>
+                <div class="highlight-box">
+                    <p>平台提供的是<strong>形象探索、陪伴体验与护理支持类服务</strong>，不涉及任何形式的性服务或越界行为。</p>
+                </div>
+            </div>
+            
+            <!-- 2️⃣ 服务性质说明 -->
+            <div class="agreement-section">
+                <h3 class="section-title">
+                    <span class="section-number">2️⃣</span>
+                    服务性质说明
+                </h3>
+                <p>服务者确认并同意：</p>
+                <ul class="requirement-list">
+                    <li>平台服务属于<strong>陪伴 / 形象支持 / 护理体验</strong></li>
+                    <li>所有服务<strong>不构成亲密关系、情感关系或任何承诺</strong></li>
+                    <li>服务仅在平台约定的时间、地点、内容范围内进行</li>
+                </ul>
+            </div>
+            
+            <!-- 3️⃣ 服务边界与禁止行为 -->
+            <div class="agreement-section">
+                <h3 class="section-title">
+                    <span class="section-number">3️⃣</span>
+                    服务边界与禁止行为（核心条款）
+                </h3>
+                <p><strong>服务者不得：</strong></p>
+                <ul class="prohibition-list">
+                    <li>提供或暗示任何性相关服务</li>
+                    <li>与用户发生暧昧、越界肢体接触</li>
+                    <li>引导用户发展私下关系</li>
+                    <li>索要或接受平台外报酬</li>
+                    <li>在平台外私下联系用户（除平台允许方式）</li>
+                </ul>
+                <div class="warning-box">
+                    <p>任何试探、暗示、越界行为，均视为严重违规。</p>
+                </div>
+            </div>
+            
+            <!-- 4️⃣ 沟通与行为规范 -->
+            <div class="agreement-section">
+                <h3 class="section-title">
+                    <span class="section-number">4️⃣</span>
+                    沟通与行为规范
+                </h3>
+                <p><strong>服务者需遵守：</strong></p>
+                <ul class="requirement-list">
+                    <li>使用尊重、中性、不评判的语言</li>
+                    <li>不对用户身份、取向、选择进行价值判断</li>
+                    <li>不主动询问隐私性或敏感问题</li>
+                    <li>不诱导用户透露不必要的个人信息</li>
+                </ul>
+            </div>
+            
+            <!-- 5️⃣ 服务中止与拒绝权 -->
+            <div class="agreement-section">
+                <h3 class="section-title">
+                    <span class="section-number">5️⃣</span>
+                    服务中止与拒绝权
+                </h3>
+                <p>服务者有权在以下情况下<strong>立即中止服务</strong>：</p>
+                <ul class="requirement-list">
+                    <li>用户提出越界或违规请求</li>
+                    <li>服务环境不安全</li>
+                    <li>用户行为令服务者感到不适</li>
+                </ul>
+                <p>平台将支持合理中止行为，不视为违约。</p>
+            </div>
+            
+            <!-- 6️⃣ 隐私与信息保护 -->
+            <div class="agreement-section">
+                <h3 class="section-title">
+                    <span class="section-number">6️⃣</span>
+                    隐私与信息保护
+                </h3>
+                <ul class="requirement-list">
+                    <li>服务者须对用户信息<strong>严格保密</strong></li>
+                    <li>不得录音、录像、拍照或传播任何服务相关内容</li>
+                    <li>不得在任何平台公开讨论用户经历</li>
+                </ul>
+            </div>
+            
+            <!-- 7️⃣ 违规处理 -->
+            <div class="agreement-section">
+                <h3 class="section-title">
+                    <span class="section-number">7️⃣</span>
+                    违规处理
+                </h3>
+                <p>根据违规程度，平台可采取：</p>
+                <ul class="prohibition-list" style="background: #fef2f2;">
+                    <li>警告</li>
+                    <li>暂停接单</li>
+                    <li>永久下线</li>
+                    <li>必要时配合相关处理</li>
+                </ul>
+            </div>
+            
+            <!-- 8️⃣ 协议确认 -->
+            <div class="confirmation-section">
+                <h3>8️⃣ 协议确认</h3>
+                <p class="confirmation-text">
+                    服务者确认：<br>
+                    我已理解并同意本协议全部内容，<br>
+                    并自愿在平台规则范围内提供服务。
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <a href="apply.html" class="back-link" style="background: var(--primary-color); color: white; border-color: var(--primary-color);">前往申请</a>
+                    <a href="index.html" class="back-link">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

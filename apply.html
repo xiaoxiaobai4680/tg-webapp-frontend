@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务者申请 - 形象探索平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .apply-page {
+            padding: 2rem 0 5rem;
+            background: var(--bg-light);
+            min-height: 100vh;
+        }
+        
+        .apply-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .apply-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .apply-header .subtitle {
+            font-size: 1.125rem;
+            opacity: 0.95;
+        }
+        
+        .apply-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .apply-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-label {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .section-hint {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .checkbox-item:hover {
+            background: #f0f9ff;
+            border-color: var(--primary-color);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 0.75rem;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+            color: var(--text-primary);
+        }
+        
+        .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .radio-item:hover {
+            background: #f0f9ff;
+            border-color: var(--primary-color);
+        }
+        
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 0.75rem;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+        }
+        
+        .radio-item label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+            color: var(--text-primary);
+        }
+        
+        .fixed-principles {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+            margin-top: 1rem;
+        }
+        
+        .fixed-principles p {
+            margin: 0;
+            color: var(--text-primary);
+            font-weight: 500;
+            text-align: center;
+            font-size: 1.0625rem;
+        }
+        
+        .boundary-group {
+            background: #fef2f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+            margin-top: 1rem;
+        }
+        
+        .boundary-group .checkbox-group {
+            margin-top: 0.5rem;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-cancel {
+            background: white;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+            padding: 1rem 3rem;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-cancel:hover {
+            border-color: var(--text-secondary);
+            background: var(--bg-light);
+        }
+        
+        .agreement-link {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #fef3c7;
+            border-radius: 8px;
+        }
+        
+        .agreement-link a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        
+        .required-mark {
+            color: #ef4444;
+        }
+        
+        @media (max-width: 768px) {
+            .apply-form {
+                padding: 1.5rem;
+            }
+            
+            .checkbox-group,
+            .radio-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn-submit,
+            .btn-cancel {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="apply-page">
+        <div class="apply-header">
+            <div class="container">
+                <h1>服务者申请</h1>
+                <p class="subtitle">加入我们，共同为用户提供专业、安全的陪伴体验</p>
+            </div>
+        </div>
+        
+        <div class="apply-container">
+            <div class="agreement-link">
+                <p>申请前请仔细阅读：<a href="agreement.html" target="_blank">《服务者入驻协议》</a></p>
+            </div>
+            
+            <form class="apply-form" id="applyForm">
+                <!-- 服务者昵称 -->
+                <div class="form-section">
+                    <label class="section-label">服务者昵称 <span class="required-mark">*</span></label>
+                    <p class="section-hint">（平台昵称｜不显示真实姓名）</p>
+                    <div class="form-group">
+                        <input type="text" id="nickname" name="nickname" placeholder="请输入您的平台昵称" required>
+                    </div>
+                </div>
+                
+                <!-- 服务方向 -->
+                <div class="form-section">
+                    <label class="section-label">服务方向 <span class="required-mark">*</span></label>
+                    <p class="section-hint">（可多选）</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="direction1" name="service_direction" value="形象陪伴">
+                            <label for="direction1">形象陪伴</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="direction2" name="service_direction" value="新手体验引导">
+                            <label for="direction2">新手体验引导</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="direction3" name="service_direction" value="妆容/穿搭协助">
+                            <label for="direction3">妆容 / 穿搭协助</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="direction4" name="service_direction" value="写真引导">
+                            <label for="direction4">写真引导</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="direction5" name="service_direction" value="护理支持">
+                            <label for="direction5">护理支持</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 擅长场景 -->
+                <div class="form-section">
+                    <label class="section-label">擅长场景 <span class="required-mark">*</span></label>
+                    <p class="section-hint">（多选）</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="scene1" name="scenes" value="初次体验陪伴">
+                            <label for="scene1">初次体验陪伴</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="scene2" name="scenes" value="室内形象整理">
+                            <label for="scene2">室内形象整理</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="scene3" name="scenes" value="安心外出陪同">
+                            <label for="scene3">安心外出陪同</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="scene4" name="scenes" value="形象记录拍照">
+                            <label for="scene4">形象记录拍照</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 服务风格 -->
+                <div class="form-section">
+                    <label class="section-label">服务风格 <span class="required-mark">*</span></label>
+                    <p class="section-hint">（选择 1–2 项）</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="style1" name="service_style" value="温和安抚型" class="style-checkbox">
+                            <label for="style1">温和安抚型</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="style2" name="service_style" value="专业引导型" class="style-checkbox">
+                            <label for="style2">专业引导型</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="style3" name="service_style" value="理性陪伴型" class="style-checkbox">
+                            <label for="style3">理性陪伴型</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="style4" name="service_style" value="朋友式支持" class="style-checkbox">
+                            <label for="style4">朋友式支持</label>
+                        </div>
+                    </div>
+                    <p class="section-hint" style="margin-top: 1rem; color: #f59e0b;">
+                        ⚠️ 注意：最多选择2项服务风格
+                    </p>
+                </div>
+                
+                <!-- 服务原则 -->
+                <div class="form-section">
+                    <label class="section-label">服务原则</label>
+                    <p class="section-hint">（固定字段）</p>
+                    <div class="fixed-principles">
+                        <p>尊重边界 · 不评判 · 不越界 · 重视安全感</p>
+                    </div>
+                </div>
+                
+                <!-- 可提供的服务边界 -->
+                <div class="form-section">
+                    <label class="section-label">可提供的服务边界 <span class="required-mark">*</span></label>
+                    <p class="section-hint">（平台勾选，请确认）</p>
+                    <div class="boundary-group">
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="boundary1" name="boundaries" value="不接受任何暧昧请求" required>
+                                <label for="boundary1">不接受任何暧昧请求</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="boundary2" name="boundaries" value="不进行私下联系" required>
+                                <label for="boundary2">不进行私下联系</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="boundary3" name="boundaries" value="所有服务按流程执行" required>
+                                <label for="boundary3">所有服务按流程执行</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 提交按钮 -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">提交申请</button>
+                    <a href="index.html" class="btn-cancel">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // 表单验证
+        const form = document.getElementById('applyForm');
+        
+        // 服务风格多选限制（最多2项）
+        const styleCheckboxes = document.querySelectorAll('.style-checkbox');
+        styleCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const checked = document.querySelectorAll('.style-checkbox:checked');
+                if (checked.length > 2) {
+                    alert('服务风格最多只能选择2项');
+                    this.checked = false;
+                }
+            });
+        });
+        
+        // 表单提交
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 验证必填项
+            const nickname = document.getElementById('nickname').value.trim();
+            if (!nickname) {
+                alert('请输入服务者昵称');
+                return;
+            }
+            
+            // 验证服务方向
+            const serviceDirections = document.querySelectorAll('input[name="service_direction"]:checked');
+            if (serviceDirections.length === 0) {
+                alert('请至少选择一项服务方向');
+                return;
+            }
+            
+            // 验证擅长场景
+            const scenes = document.querySelectorAll('input[name="scenes"]:checked');
+            if (scenes.length === 0) {
+                alert('请至少选择一项擅长场景');
+                return;
+            }
+            
+            // 验证服务风格（至少1项，最多2项）
+            const serviceStyles = document.querySelectorAll('input[name="service_style"]:checked');
+            if (serviceStyles.length === 0) {
+                alert('请至少选择一项服务风格');
+                return;
+            }
+            if (serviceStyles.length > 2) {
+                alert('服务风格最多只能选择2项');
+                return;
+            }
+            
+            // 验证服务边界
+            const boundaries = document.querySelectorAll('input[name="boundaries"]:checked');
+            if (boundaries.length !== 3) {
+                alert('请确认所有服务边界选项');
+                return;
+            }
+            
+            // 收集表单数据
+            const formData = {
+                nickname: nickname,
+                service_directions: Array.from(serviceDirections).map(cb => cb.value),
+                scenes: Array.from(scenes).map(cb => cb.value),
+                service_style: Array.from(serviceStyles).map(cb => cb.value),
+                boundaries: Array.from(boundaries).map(cb => cb.value)
+            };
+            
+            console.log('表单数据:', formData);
+            
+            // 这里可以添加实际的表单提交逻辑
+            alert('申请已提交！我们会尽快审核并与您联系。');
+            
+            // 重置表单
+            form.reset();
+        });
+    </script>
+</body>
+</html>
+

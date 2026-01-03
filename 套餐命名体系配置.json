@@ -1,0 +1,185 @@
+{
+  "platform_theme": "形象探索 · 陪伴体验 · 身心护理",
+  "forbidden_keywords": [
+    "私密",
+    "欲",
+    "暧昧",
+    "禁忌"
+  ],
+  "recommended_keywords": [
+    "体验",
+    "探索",
+    "陪伴",
+    "护理",
+    "记录"
+  ],
+  "core_packages": {
+    "初次体验": {
+      "series_name": "初次体验",
+      "description": "新手安全入口",
+      "packages": [
+        {
+          "id": "newbie_exploration",
+          "name": "新形象探索 · 入门陪伴",
+          "description": "为第一次尝试不同形象的人提供温和、安全的陪伴体验",
+          "includes": [
+            "基础妆容整理",
+            "室内陪伴适应",
+            "简单形象拍照（不外出）",
+            "情绪缓冲与流程引导"
+          ],
+          "target_audience": [
+            "第一次变装",
+            "强紧张 / 害怕被评价",
+            "想"试试看""
+          ]
+        },
+        {
+          "id": "safe_outing",
+          "name": "安心出行 · 陪同体验",
+          "description": "在熟悉环境中进行的短时间外出陪伴",
+          "includes": [
+            "穿搭整理",
+            "外出路线建议",
+            "商场 / 咖啡厅陪同",
+            "行为与情绪支持"
+          ],
+          "note": "不写"陪逛街"，写"出行陪同""
+        }
+      ]
+    },
+    "形象打造": {
+      "series_name": "形象打造",
+      "description": "价值核心",
+      "packages": [
+        {
+          "id": "makeup_experience",
+          "name": "个人形象管理 · 妆容体验",
+          "description": "根据面部特征定制适合日常或外出的妆容",
+          "style_tags": [
+            "清爽自然",
+            "成熟稳重",
+            "中性风格",
+            "写真风格"
+          ],
+          "note": "细分标签（不做套餐名）"
+        },
+        {
+          "id": "photo_experience",
+          "name": "形象记录 · 写真体验",
+          "description": "用照片记录某个重要的自我阶段",
+          "options": [
+            "室内 / 半私密环境",
+            "姿态与表情引导",
+            "头像 / 纪念照用途"
+          ],
+          "key_point": "不是"拍得性感"，而是"拍得像你自己""
+        },
+        {
+          "id": "styling_coordination",
+          "name": "穿搭整理 · 形象协调",
+          "description": "协助完成整体风格的协调与细节整理",
+          "includes": [
+            "服装比例建议",
+            "细节调整",
+            "鞋包配饰建议"
+          ]
+        }
+      ]
+    },
+    "身心护理": {
+      "series_name": "身心护理",
+      "description": "高复购",
+      "packages": [
+        {
+          "id": "body_care",
+          "name": "身体护理 · 形象准备",
+          "description": "为形象体验提供舒适、干净的身体状态",
+          "includes": [
+            "脱毛护理",
+            "皮肤基础护理",
+            "形象前准备建议"
+          ],
+          "note": "避免"脱毛服务"单独拎出来，必须放在"护理"体系下"
+        },
+        {
+          "id": "relaxation_care",
+          "name": "放松护理 · 身心舒缓",
+          "description": "通过放松护理帮助缓解紧张与焦虑",
+          "includes": [
+            "肩颈 / 腿部放松",
+            "非医疗、非治疗",
+            "全程专业边界"
+          ]
+        }
+      ]
+    }
+  },
+  "advanced_packages": [
+    {
+      "id": "half_day_experience",
+      "name": "形象探索 · 半日体验",
+      "description": "从准备到记录的一次完整体验",
+      "combinations": [
+        "妆容体验",
+        "穿搭整理",
+        "写真记录",
+        "室内陪伴"
+      ]
+    },
+    {
+      "id": "outdoor_companion",
+      "name": "安心陪伴 · 外出体验",
+      "description": "为已经适应形象的人提供更自然的陪伴",
+      "combinations": [
+        "穿搭整理",
+        "外出陪同",
+        "轻度形象拍照"
+      ]
+    },
+    {
+      "id": "milestone_memory",
+      "name": "个人阶段 · 纪念体验",
+      "description": "记录某个重要的自我节点",
+      "scenarios": [
+        "第一次外出",
+        "形象变化阶段",
+        "自我确认"
+      ]
+    }
+  ],
+  "service_provider_card_rules": {
+    "forbidden_terms": [
+      "可接受尺度",
+      "私密服务"
+    ],
+    "recommended_terms": [
+      "擅长风格",
+      "服务边界",
+      "场景经验"
+    ],
+    "example": {
+      "strengths": "新手陪伴 / 情绪缓冲 / 写真引导",
+      "service_principles": "不越界、不评判、尊重隐私"
+    }
+  },
+  "naming_rules": [
+    "用"体验 / 探索 / 记录 / 护理"",
+    "不用身体敏感词做标题",
+    "不直接点名性别或身份",
+    "场景 > 行为",
+    "情绪价值 > 身体行为"
+  ],
+  "keyword_mapping": {
+    "私密": ["体验", "半私密环境"],
+    "欲": ["探索", "体验"],
+    "暧昧": ["陪伴", "陪同"],
+    "禁忌": ["记录", "探索"],
+    "陪逛街": ["出行陪同"],
+    "脱毛服务": ["身体护理 · 形象准备"],
+    "可接受尺度": ["服务边界"],
+    "私密服务": ["场景经验"]
+  }
+}
+
+
